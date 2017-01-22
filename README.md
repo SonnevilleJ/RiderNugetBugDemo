@@ -6,6 +6,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 ## Steps to reproduce [RIDER-4152](https://youtrack.jetbrains.com/issue/RIDER-4152):
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
 1. Open RiderNugetBugDemo.sln in Rider.
+1. Ensure the NuGet panel is not visible.
 1. In the Solution Explorer panel, right click the RiderNugetBugDemo project to reveal the context menu.
 1. Click `Manage NuGet Packages`.
 
@@ -19,6 +20,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Click the Sources tab in the NuGet panel, then click the NuGet.Config file to open it in the editor. 
 1. Add the following line in the `<packageSources>` block: `<add key="TeamCity" value="http://localhost:9000/guestAuth/app/nuget/v1/FeedService.svc/" />`
 1. Save and close the NuGet.Config file.
+1. Close the project and reopen it to force Rider to reload the NuGet.Config file.
 1. Verify the new package source is listed on the Packages tab of the NuGet panel. Ensure the box is unchecked.
 1. Select a NuGet package and try to install it into the RiderNugetBugDemo.
 
