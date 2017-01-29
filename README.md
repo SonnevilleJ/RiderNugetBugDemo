@@ -1,8 +1,6 @@
 # RiderNugetBugDemo
 This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https://www.jetbrains.com/rider) version #RS-163.12057
 
-**Please note:** This demo assumes a TeamCity server is configured to host a NuGet package source with guest authentication at `http://localhost:9000/guestAuth/app/nuget/v1/FeedService.svc`. Please ensure TeamCity is configured before beginning, or use another valid TeamCity NuGet feed in the steps below.
-
 ## Steps to reproduce [RIDER-4152](https://youtrack.jetbrains.com/issue/RIDER-4152):
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
 1. Open RiderNugetBugDemo.sln in Rider.
@@ -14,6 +12,8 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 **Observed behavior**: The NuGet panel does not appear.
 
 ## Steps to reproduce [RIDER-4151](https://youtrack.jetbrains.com/issue/RIDER-4151):
+**Please note:** This assumes a TeamCity server is configured to host a NuGet package source with guest authentication at `http://localhost:9000/guestAuth/app/nuget/v1/FeedService.svc`. Please ensure TeamCity is configured before beginning, or use another valid TeamCity NuGet feed in the steps below.
+
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
 1. Open RiderNugetBugDemo.sln in Rider.
 1. Open the NuGet panel.
