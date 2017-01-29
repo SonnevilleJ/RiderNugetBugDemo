@@ -10,8 +10,8 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. In the Solution Explorer panel, right click the RiderNugetBugDemo project to reveal the context menu.
 1. Click `Manage NuGet Packages`.
 
-* **Expected behavior**: The NuGet panel appears.
-* **Observed behavior**: The NuGet panel does not appear.
+**Expected behavior**: The NuGet panel appears.<br>
+**Observed behavior**: The NuGet panel does not appear.
 
 ## Steps to reproduce [RIDER-4151](https://youtrack.jetbrains.com/issue/RIDER-4151):
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
@@ -24,8 +24,8 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Verify the new package source is listed on the Packages tab of the NuGet panel. Ensure the box is unchecked.
 1. Select a NuGet package and try to install it into the RiderNugetBugDemo.
 
-* **Expected behavior**: The NuGet package is installed into the project using the https://www.nuget.org package source
-* **Observed behavior**: The NuGet package fails to install. The error message mentions an error while retrieving package metadata from the TeamCity source added earlier.
+**Expected behavior**: The NuGet package is installed into the project using the https://www.nuget.org package source<br>
+**Observed behavior**: The NuGet package fails to install. The error message mentions an error while retrieving package metadata from the TeamCity source added earlier.
 
 ## Steps to reproduce [RIDER-4254](https://youtrack.jetbrains.com/issue/RIDER-4254)
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
@@ -36,5 +36,5 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Ensure the checkbox to `Optimize Imports` is checked, then click the Commit button.
 1. Observe the Class1.cs file and the commit diff in the VCS Log. The unused import is still present.
 
-* **Expected behavior**: The unused import is removed from the file and does not appear in the commit history.
-* **Observed behavior**: The unused import still exists in the file and appears in the commit history.
+**Expected behavior**: The unused import is removed from the file and does not appear in the commit history.<br>
+**Observed behavior**: The unused import still exists in the file and appears in the commit history.
