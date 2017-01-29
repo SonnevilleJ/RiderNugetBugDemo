@@ -26,3 +26,15 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 
 * **Expected behavior**: The NuGet package is installed into the project using the https://www.nuget.org package source
 * **Observed behavior**: The NuGet package fails to install. The error message mentions an error while retrieving package metadata from the TeamCity source added earlier.
+
+## Steps to reproduce [RIDER-4254](https://youtrack.jetbrains.com/issue/RIDER-4254)
+1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
+1. Open RiderNugetBugDemo.sln in Rider.
+1. Open Class1.cs
+1. Add an unused import to the class, for instance, `using System.Linq;`
+1. Press Ctrl + K (Cmd + K on Mac) to open the commit window.
+1. Ensure the checkbox to `Optimize Imports` is checked, then click the Commit button.
+1. Observe the Class1.cs file and the commit diff in the VCS Log. The unused import is still present.
+
+* **Expected behavior**: The unused import is removed from the file and does not appear in the commit history.
+* **Observed behavior**: The unused import still exists in the file and appears in the commit history.
