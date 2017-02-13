@@ -9,6 +9,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Click `Manage NuGet Packages`.
 
 **Expected behavior**: The NuGet panel appears.<br>
+
 **Observed behavior**: The NuGet panel does not appear.
 
 ## Steps to reproduce [RIDER-4151](https://youtrack.jetbrains.com/issue/RIDER-4151):
@@ -25,6 +26,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Select a NuGet package and try to install it into the RiderNugetBugDemo.
 
 **Expected behavior**: The NuGet package is installed into the project using the https://www.nuget.org package source<br>
+
 **Observed behavior**: The NuGet package fails to install. The error message mentions an error while retrieving package metadata from the TeamCity source added earlier.
 
 ## Steps to reproduce [RIDER-4254](https://youtrack.jetbrains.com/issue/RIDER-4254)
@@ -37,6 +39,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Observe the Class1.cs file and the commit diff in the VCS Log. The unused import is still present.
 
 **Expected behavior**: The unused import is removed from the file and does not appear in the commit history.<br>
+
 **Observed behavior**: The unused import still exists in the file and appears in the commit history.
 
 ## Steps to reproduce [RIDER-4466](https://youtrack.jetbrains.com/issue/RIDER-4466)
@@ -48,6 +51,7 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Open the new class file in the editor.
 
 **Expected behavior**: The namespace of the class should not contain the hyphen character, because hyphens are illegal characters in .NET namespaces. For instance, a directory named `DirectoryWithIllegalNamespaceChars-1234` should instead be named `DirectoryWithIllegalNamespaceChars1234`.
+
 **Observed behavior**: The namespace of the class does in fact have the hyphen character. Rider correctly flags the error.
 
 ### Part 2
@@ -55,4 +59,5 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 1. Open the new class file in the editor.
 
 **Expected behavior**: Neither the namespace of the class nor the class itself should contain the hyphen character. For instance, a class named `Example-2` should be named `Example2` in code.
+
 **Observed behavior**: The namespace of the class does not have the hyphen character; however, the class name *does* have the illegal character. Rider correctly flags the error.
