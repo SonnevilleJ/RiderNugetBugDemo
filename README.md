@@ -38,3 +38,21 @@ This repo can be used to reproduce NuGet-related bugs in [JetBrains Rider](https
 
 **Expected behavior**: The unused import is removed from the file and does not appear in the commit history.<br>
 **Observed behavior**: The unused import still exists in the file and appears in the commit history.
+
+## Steps to reproduce [RIDER-4466](https://youtrack.jetbrains.com/issue/RIDER-4466)
+**Please note:** This defect has two parts. Complete both parts in order.
+
+### Part 1
+1. In the Solution Explorer panel, right-click the project and choose `New` > `Directory`. Enter a name with a hyphen, such as `DirectoryWithIllegalNamespaceChars-1234`.
+1. Right click the new directory and choose `New` > `Class`. Enter a valid class name, such as `Example`.
+1. Open the new class file in the editor.
+
+**Expected behavior**: The namespace of the class should not contain the hyphen character, because hyphens are illegal characters in .NET namespaces. For instance, a directory named `DirectoryWithIllegalNamespaceChars-1234` should instead be named `DirectoryWithIllegalNamespaceChars1234`.
+**Observed behavior**: The namespace of the class does in fact have the hyphen character. Rider correctly flags the error.
+
+### Part 2
+1. Use the same procedure in step 4 to create another new class. When naming this class, provide a name with a hyphen, such as `Example-2`.
+1. Open the new class file in the editor.
+
+**Expected behavior**: Neither the namespace of the class nor the class itself should contain the hyphen character. For instance, a class named `Example-2` should be named `Example2` in code.
+**Observed behavior**: The namespace of the class does not have the hyphen character; however, the class name *does* have the illegal character. Rider correctly flags the error.
