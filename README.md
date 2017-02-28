@@ -61,3 +61,18 @@ This repo can be used to reproduce bugs in [JetBrains Rider](https://www.jetbrai
 **Expected behavior**: Neither the namespace of the class nor the class itself should contain the hyphen character. For instance, a class named `Example-2` should be named `Example2` in code.
 
 **Observed behavior**: The namespace of the class does not have the hyphen character; however, the class name *does* have the illegal character. Rider correctly flags the error.
+
+## Steps to reproduce [RIDER-4681](https://youtrack.jetbrains.com/issue/RIDER-4681)
+**Please note:** This defect is similar or identical to [RIDER-4312](https://youtrack.jetbrains.com/issue/RIDER-4312)
+
+1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
+1. Open RiderNugetBugDemo.sln in Rider.
+1. Open Class2.cs
+1. Observe Class2.cs contains both an interface `IClass2` and a class `Class2`.
+1. Perform a "Move" refactoring on the `IClass2` interface: right-click the `IClass2` text and choose `Refactoring` > `Move...` or press F6 with the cursor on the `IClass2` name.
+1. Choose `Move To Folder`
+1. Enter the `Interfaces` folder (or any other existing folder) and press `Next`.
+
+**Expected behavior**: The `IClass2` interface is moved to a new file `IClass2.cs` inside the `Interfaces` folder and `Class2` remains inside `Class2.cs` in the original location.
+
+**Observed behavior**: Both the `IClass2` interface and the `Class2` class are moved to corresponding files inside the destination folder specified in the last step.
