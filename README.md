@@ -1,5 +1,5 @@
 # RiderBugDemo
-This repo can be used to reproduce bugs in [JetBrains Rider](https://www.jetbrains.com/rider) version #RS-163.12057
+This repo can be used to reproduce bugs in [JetBrains Rider](https://www.jetbrains.com/rider).
 
 ## Steps to reproduce [RIDER-4152](https://youtrack.jetbrains.com/issue/RIDER-4152):
 1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
