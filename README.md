@@ -76,3 +76,15 @@ This repo can be used to reproduce bugs in [JetBrains Rider](https://www.jetbrai
 **Expected behavior**: The `IClass2` interface is moved to a new file `IClass2.cs` inside the `Interfaces` folder and `Class2` remains inside `Class2.cs` in the original location.
 
 **Observed behavior**: Both the `IClass2` interface and the `Class2` class are moved to corresponding files inside the destination folder specified in the last step.
+
+## Steps to reproduce [RIDER-4767](https://youtrack.jetbrains.com/issue/RIDER-4767)
+1. Clone this repo: https://github.com/SonnevilleJ/RiderNugetBugDemo
+1. Open RiderNugetBugDemo.sln in Rider.
+1. Open Class1.cs
+1. Ensure Chrome or another application has a window open in the background. Switch back to Rider.
+1. In the body of `Class1` type `System.` and pause to allow the autocomplete dialog to appear.
+1. While the autocomplete dialog is open, press Alt + Tab to switch to the other application.
+
+**Expected behavior**: The autocomplete dialog closes, or is otherwise not visible when the other app has focus.
+
+**Observed behavior**: The autocomplete dialog is visible above the other application.
